@@ -1,0 +1,234 @@
+\documentclass[12pt]{article} % Clase de documento: artículo y tamaño de letra
+\usepackage[utf8]{inputenc} % Escritura en castellano con acentos
+\usepackage[T1]{fontenc} % Escritura en castellano con acentos
+\usepackage{calligra} 
+\usepackage{listings}
+\usepackage{pslatex}  % Fuente de letras
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{caption}
+\usepackage{txfonts}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[spanish,activeacute]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{times}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{mdwlist}
+\usetikzlibrary{chains,fit,shapes}
+\usepackage{array}
+\usepackage{caption}
+
+\usetikzlibrary{chains,fit,shapes,arrows,calc,shapes,decorations.pathreplacing}
+\usetikzlibrary{through}
+
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+
+%Paquetes para hacer tablas lindas...
+% \usepackage{amsmath,amssymb,amsfonts,latexsym,stmaryrd}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usepackage{shadow}
+\usepackage{fancybox}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{subfigure}
+\usepackage{multirow}
+
+
+\definecolor{OliveGreen}{RGB}{2,80,1}
+\definecolor{LigthOrange}{RGB}{255,255,200}
+\definecolor{gray97}{gray}{.97}
+\definecolor{Gray}{RGB}{171,174,178}
+
+\newcommand{\instr}[1]{{\sffamily{\small{\textsl{\textbf{#1}}}}}}
+\newcommand{\code}[1]{{\sffamily{\smal\textheight = 24cm \textwidth = 16cm \topmargin = -1cm \oddsidemargin= 0cm {\textsl{#1}}}}}
+
+\lstdefinelanguage {x86nasm}
+{morekeywords={resb,resw,resd,resq,endstruc,at,istruc,iend}}
+
+\pagestyle{fancy}
+\headheight=50pt %para cambiar el tamaño del encabezado
+\fancyhead[L]    %la "L" indica a la izquierda
+{	
+ \begin{minipage}{2cm}
+  \includegraphics[width=1.3\textwidth]{Logo-UTN-BA.jpeg}
+ \end{minipage}	
+ \begin{minipage}{10.9cm}
+\begin{center}
+   \Large
+   {
+     \textsf
+     {
+       \calligra{Universidad Tecnológica Nacional\\ Facultad Regional Buenos Aires \\ Departamento de Ingeniería Electrónica} 
+     }
+   }
+\end{center}
+\end{minipage}
+}
+
+\fancyhead[R] %la "R" indica a la derecha
+{
+  \begin{minipage}{3cm}
+   \small
+   {
+     \emph{\textbf{Informática I}} \\ \emph{4 de Julio de 2020} \\ \emph{Primer Parcial}\\ \emph{Curso R1021}  
+   }
+  \end{minipage}}
+
+\definecolor{OliveGreen}{RGB}{2,80,1}
+\definecolor{LigthOrange}{RGB}{255,255,200}
+\definecolor{gray97}{gray}{.97}
+
+
+
+\begin{document} % Inicio del documento
+\newpage
+%Cambia de página, el texto después de este comando aparecerá en la siguiente página en adelante.
+\noindent
+  \begin{center}
+   \begin{tabular}{| c | c | c |}
+    \hline
+     Apellido y Nombres \hspace{8cm} &  Legajo & {Calificación} \\ \hline 
+      &	& \\ \hline
+   \end{tabular}	
+  \end{center}
+
+\noindent
+%{\bf Condiciones de aprobación:} \\
+%Bla
+%Bla
+%Bla para el {\bf primerParcial}.\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Comienzo del tema del examen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lstset{
+	frame=Ltb,
+	framerule=0pt,
+	aboveskip=0.5cm,
+	framextopmargin=3pt,
+	framexbottommargin=3pt,
+	framexleftmargin=0.4cm,
+	framesep=0pt,
+	rulesep=.4pt,
+	backgroundcolor=\color{gray97},
+	rulesepcolor=\color{black},
+ 	language=C,
+	captionpos=b,
+	tabsize=3,
+	frame=lines,
+	keywordstyle=\color{blue},
+	commentstyle=\color{Gray},
+	stringstyle=\color{red},
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	breaklines=true,
+	showstringspaces=false,
+	basicstyle=\ttfamily\scriptsize,
+	emph={label},
+	framerule=0pt,
+}
+
+\begin{enumerate}
+\item Implemente una función que contenga el algoritmo de cifrado {\bf ROT13}. \\
+El algoritmo consiste en sustituir cada letra por una que se encuentra trece ( 13 ) posiciones por delante o por detras según corresponda. \\
+Por ejemplo la A se reemplaza por la N, la B por la O y así sucesivamente. Para las últimas trece letras la secuencia se invierte.\\
+{\color{red}Se debe mostrar el mensaje original, el mensaje codificado y la cantidad de caracteres que fueron sustituidos}. También se debe utilizar la menor cantidad de memoria posible y el mensaje no puede exeder 30 caracteres.\\
+ A continuación se muestra la tabla de las equivalencias entre las letras.
+%\vspace{0.6cm}
+\noindent
+  \begin{center}
+   \begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c | c | c |}
+    \hline
+     A & B & C & D & E & F & G & H & I & J & K & L & M \\ \hline 
+     N & O & P & Q & R & S & T & U & V & W & X & Y & Z \\ \hline 
+   \end{tabular}	
+  \end{center}
+
+  \begin{center}
+   \begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c | c | c |}
+    \hline
+     a & b & c & d & e & f & g & h & i & j & k & l & m \\ \hline 
+     n & o & p & q & r & s & t & u & v & w & x & y & z \\ \hline 
+   \end{tabular}	
+  \end{center}
+
+Ejemplo:
+\noindent
+\vspace{-0.6cm}
+  \begin{center}
+   \begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c |}
+    \hline
+     Texto sin cifrar & H & o & L & a &   & m & u & N & d & O  \\ \hline 
+     Texto cifrado    & U & b & Y & n &   & z & h & A & q & B  \\ \hline 
+   \end{tabular}	
+  \end{center}
+Prototipo de la función:
+\begin{center}
+{\color{blue}int} rot\_13 ({\color{blue}char} *dataPtr , {\color{blue}char} * dataPtrCodificada)
+\end{center}
+Donde:
+\begin{itemize}
+\item {\bf dataPtr:} es el puntero al mensaje a cifrar (string).
+\item {\bf dataPtrCodificada:} es el puntero al mensaje cifrado (string) donde se colocará el mensaje cifrado.
+\end{itemize}
+
+Devuelve:
+\begin{itemize}
+\item {\bf -1} Si el mensaje contiene un caracter {\bf distinto} de una {\bf letra} o un {\bf espacio}.
+\item Un {\bf número positivo} indicando la cantidad de caracteres convertidos sin tener en 
+cuenta los espacios ni el {\bf $\setminus$0}
+\end{itemize}
+\end{enumerate}
+
+\newpage
+
+Donde se ve  {\color{red}(........)}  completar con el dato necesario.\\ 
+ \begin{lstlisting}
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#define TAM 30
+
+int rot_13(char* , char *);        
+
+int main(void)
+{
+    char dataPtr[TAM], *dataPtrCodificada;        
+    int devuelve,longitud,i;
+
+    printf("Ingrese texto a codificar\n");
+    fgets(dataPtr,TAM,stdin);
+    for (i=0;dataPtr[i]!='\0';i++){     
+    }
+    dataPtr[i-1]='\0';                  
+    longitud = strlen(dataPtr);         
+
+    dataPtrCodificada = (char *) malloc ( (longitud+1) * sizeof(char)); 
+
+    devuelve = rot_13( (.......) , (.......));         
+    if (devuelve == -1){
+        printf("el mensaje contiene un caracter distinto de una letra o un espacio\n");
+    }else{
+        printf("el mensaje %s fue codificado a %s\n",(.......), (.......));
+        printf("la cantidad intercambiada fue de: %d\r\n",(.......));
+    }
+    free({(.......));
+    return (0);
+}
+   \end{lstlisting}
+ 
+\end{document} % Fin del documento.

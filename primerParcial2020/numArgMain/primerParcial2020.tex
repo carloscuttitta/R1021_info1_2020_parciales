@@ -1,0 +1,160 @@
+\documentclass[12pt]{article} % Clase de documento: artículo y tamaño de letra
+\usepackage[utf8]{inputenc} % Escritura en castellano con acentos
+\usepackage[T1]{fontenc} % Escritura en castellano con acentos
+\usepackage{calligra} 
+\usepackage{listings}
+\usepackage{pslatex}  % Fuente de letras
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{caption}
+\usepackage{txfonts}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[spanish,activeacute]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{times}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{mdwlist}
+\usetikzlibrary{chains,fit,shapes}
+\usepackage{array}
+\usepackage{caption}
+
+\usetikzlibrary{chains,fit,shapes,arrows,calc,shapes,decorations.pathreplacing}
+\usetikzlibrary{through}
+
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+
+%Paquetes para hacer tablas lindas...
+% \usepackage{amsmath,amssymb,amsfonts,latexsym,stmaryrd}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usepackage{shadow}
+\usepackage{fancybox}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{subfigure}
+\usepackage{multirow}
+
+
+\definecolor{OliveGreen}{RGB}{2,80,1}
+\definecolor{LigthOrange}{RGB}{255,255,200}
+\definecolor{gray97}{gray}{.97}
+\definecolor{Gray}{RGB}{171,174,178}
+
+\newcommand{\instr}[1]{{\sffamily{\small{\textsl{\textbf{#1}}}}}}
+\newcommand{\code}[1]{{\sffamily{\smal\textheight = 24cm \textwidth = 16cm \topmargin = -1cm \oddsidemargin= 0cm {\textsl{#1}}}}}
+
+\lstdefinelanguage {x86nasm}
+{morekeywords={resb,resw,resd,resq,endstruc,at,istruc,iend}}
+
+\pagestyle{fancy}
+\headheight=50pt %para cambiar el tamaño del encabezado
+\fancyhead[L]    %la "L" indica a la izquierda
+{	
+ \begin{minipage}{2cm}
+  \includegraphics[width=1.3\textwidth]{Logo-UTN-BA.jpeg}
+ \end{minipage}	
+ \begin{minipage}{10.9cm}
+\begin{center}
+   \Large
+   {
+     \textsf
+     {
+       \calligra{Universidad Tecnológica Nacional\\ Facultad Regional Buenos Aires \\ Departamento de Ingeniería Electrónica} 
+     }
+   }
+\end{center}
+\end{minipage}
+}
+
+\fancyhead[R] %la "R" indica a la derecha
+{
+  \begin{minipage}{3cm}
+   \small
+   {
+     \emph{\textbf{Informática I}} \\ \emph{4 de Julio de 2020} \\ \emph{Primer Parcial}\\ \emph{Curso R1021}  
+   }
+  \end{minipage}}
+
+\definecolor{OliveGreen}{RGB}{2,80,1}
+\definecolor{LigthOrange}{RGB}{255,255,200}
+\definecolor{gray97}{gray}{.97}
+
+
+
+\begin{document} % Inicio del documento
+\newpage
+%Cambia de página, el texto después de este comando aparecerá en la siguiente página en adelante.
+\noindent
+  \begin{center}
+   \begin{tabular}{| c | c | c |}
+    \hline
+     Apellido y Nombres \hspace{8cm} &  Legajo & {Calificación} \\ \hline 
+      &	& \\ \hline
+   \end{tabular}	
+  \end{center}
+
+\noindent
+%{\bf Condiciones de aprobación:} \\
+%Bla
+%Bla
+%Bla para el {\bf primerParcial}.\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Comienzo del tema del examen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lstset{
+	frame=Ltb,
+	framerule=0pt,
+	aboveskip=0.5cm,
+	framextopmargin=3pt,
+	framexbottommargin=3pt,
+	framexleftmargin=0.4cm,
+	framesep=0pt,
+	rulesep=.4pt,
+	backgroundcolor=\color{gray97},
+	rulesepcolor=\color{black},
+% 	language=C,
+	captionpos=b,
+	tabsize=3,
+	frame=lines,
+	keywordstyle=\color{blue},
+	commentstyle=\color{Gray},
+	stringstyle=\color{red},
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	breaklines=true,
+	showstringspaces=false,
+	basicstyle=\ttfamily\scriptsize,
+	emph={label},
+	framerule=0pt,
+}
+
+\begin{enumerate}
+\item Realizar un programa que por línea de comando reciba una cantidad indeterminada de argumentos. Los mismos serán considerados como términos de una serie del tipo entero.\\
+Se deberá presentar por {\color{blue}stdout} las siguientes operaciones:
+\begin{itemize}
+\item Suma de todos los términos
+\item Promedio de todos los términos
+\item El mayor de todos
+\item El menor de todos
+\end{itemize}
+Se tiene que validar los errores que considere pertinente terminado el programa con un código de error para cada caso. Si la finalización es exitosa, terminará con código de retorno {\color{blue}0}.
+El programa deberá tener un solo punto de salida. 
+
+
+\end{enumerate}
+ 
+\end{document} % Fin del documento.

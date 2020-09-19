@@ -1,0 +1,160 @@
+\documentclass[12pt]{article} % Clase de documento: artículo y tamaño de letra
+%\usepackage[spanish]{babel} % Manejo de idiomas
+\usepackage[utf8]{inputenc} % Escritura en castellano con acentos
+\usepackage[T1]{fontenc} % Escritura en castellano con acentos
+\usepackage{calligra} 
+\usepackage{listings}
+\usepackage{pslatex}  % Fuente de letras
+\usepackage{graphicx}
+\usepackage{array}
+%\usepackage{times} % Fuente de letras
+\usepackage[margin=2.5cm]{geometry}
+%Coloca 2.5 cm de margenes superior, inferior,derecho e izquierdo.
+\usepackage{caption}
+\usepackage{txfonts}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[spanish,activeacute]{babel}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{color}
+% \usepackage[T1]{fontenc}
+\usepackage{times}
+% \usepackage[lmargin=2cm]{geometry}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{mdwlist}
+
+\usetikzlibrary{chains,fit,shapes,arrows,calc,shapes,decorations.pathreplacing}
+\usetikzlibrary{through}
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+
+%Paquetes para hacer tablas lindas...
+% \usepackage{amsmath,amssymb,amsfonts,latexsym,stmaryrd}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{shadow}
+\usepackage{fancybox}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{subfigure}
+\usepackage{multirow}
+
+\pagestyle{fancy}
+\headheight=50pt %para cambiar el tamaño del encabezado
+\fancyhead[L]    %la "L" indica a la izquierda
+{	
+ \begin{minipage}{3.3cm}
+  \includegraphics[width=1.0\textwidth]{Logo-UTN-BA.jpeg}
+%  \includegraphics[width=0.6\textwidth]{UTNlogo.eps}
+ \end{minipage}	
+ \begin{minipage}{7.7cm}
+   \normalsize
+   {
+     \textsf
+     {
+       \calligra{Universidad Tecnológica Nacional\\ Facultad Regional Buenos Aires \\ Departamento de {Ingeniería} {Electrónica}} 
+     }
+   }
+ \end{minipage}
+}
+
+\fancyhead[R] %la "R" indica a la derecha
+{
+  \begin{minipage}{4.0cm}
+   \small
+   {
+     \emph{\textbf{Informática I}} \\ \emph{18 de Julio de 2020} \\ \emph{Primer parcial}\\ \emph{Curso R1021}  
+   }
+  \end{minipage}}
+
+\definecolor{OliveGreen}{RGB}{2,80,1}
+\definecolor{LigthOrange}{RGB}{255,255,200}
+\definecolor{gray97}{gray}{.97}
+
+\begin{document} % Inicio del documento
+\newpage
+%Cambia de página, el texto después de este comando aparecerá en la siguiente página en adelante.
+
+\noindent
+  \begin{center}
+   \begin{tabular}{| c | c | c |}
+    \hline
+     Apellido y Nombres \hspace{8cm} &  Legajo & {Calificación} \\ \hline 
+      &	& \\ \hline
+   \end{tabular}	
+  \end{center}
+
+\noindent
+%Condiciones: \\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Comienzo del tema del examen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lstset{
+	frame=Ltb,
+	framerule=0pt,
+	aboveskip=0.5cm,
+	framextopmargin=3pt,
+	framexbottommargin=3pt,
+	framexleftmargin=0.4cm,
+	framesep=0pt,
+	rulesep=.4pt,
+	backgroundcolor=\color{gray97},
+	rulesepcolor=\color{black},
+ 	language=C,
+	captionpos=b,
+	tabsize=3,
+	frame=lines,
+	keywordstyle=\color{blue},
+	commentstyle=\color{Gray},
+	stringstyle=\color{red},
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	breaklines=true,
+	showstringspaces=false,
+	basicstyle=\ttfamily\scriptsize,
+	emph={label},
+	framerule=0pt,
+}
+\begin{enumerate}
+\item Indique que diferencia hay entre pasar un dato a una función por valor y por referencia.
+
+\item Explique el funcionamiento del siguiente programa. Indique que se imprime por stdout
+
+\begin{lstlisting}
+#include <stdio.h>
+
+int main (void)
+{
+    unsigned char i;
+    char j;
+
+    for (i = 0; i < 128; i++) {
+        printf ("%x\t", i);
+    }
+    puts ("");
+    
+    for (j = 0; j < 128; j++) {
+        printf ("%x\t", j);
+    }
+    puts ("");
+    return (0);
+}
+\end{lstlisting}
+
+\end{enumerate}
+
+
+ 
+\end{document} % Fin del documento.
+ 
+
+  
+

@@ -1,0 +1,261 @@
+\documentclass[12pt]{article} % Clase de documento: artículo y tamaño de letra
+ 
+% \usepackage[spanish]{babel} % Manejo de idiomas
+\usepackage[utf8]{inputenc} % Escritura en castellano con acentos
+\usepackage[T1]{fontenc} % Escritura en castellano con acentos
+\usepackage{calligra} 
+\usepackage{listings}
+\usepackage{pslatex}  % Fuente de letras
+\usepackage{graphicx}
+\usepackage{array}
+%\usepackage{times} % Fuente de letras
+\usepackage[margin=2.5cm]{geometry}
+%Coloca 2.5 cm de margenes superior, inferior,derecho e izquierdo.
+\usepackage{caption}
+\usepackage{txfonts}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[spanish,activeacute]{babel}
+\usepackage{float}
+\usepackage{multicol}
+% \usepackage[usenames,dvipsnames]{color}
+\usepackage{color}
+% \usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{mdwlist}
+
+\usetikzlibrary{chains,fit,shapes,arrows,calc,shapes,decorations.pathreplacing}
+\usetikzlibrary{through}
+
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+
+%Paquetes para hacer tablas lindas...
+% \usepackage{amsmath,amssymb,amsfonts,latexsym,stmaryrd}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{shadow}
+\usepackage{fancybox}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{subfigure}
+\usepackage{multirow}
+
+
+\definecolor{OliveGreen}{RGB}{2,80,1}
+\definecolor{LigthOrange}{RGB}{255,255,200}
+\definecolor{gray97}{gray}{.97}
+\definecolor{Gray}{RGB}{171,174,178}
+
+
+\pagestyle{fancy}
+\headheight=50pt %para cambiar el tamaño del encabezado
+\fancyhead[L]    %la "L" indica a la izquierda
+{	
+ \begin{minipage}{2cm}
+  \includegraphics[width=0.6\textwidth]{UTNlogo.eps}
+ \end{minipage}	
+ \begin{minipage}{6.9cm}
+   \normalsize
+   {
+     \textsf
+     {
+       \calligra{Universidad Tecnológica Nacional\\ Facultad Regional Buenos Aires \\ Departamento de {Ingeniería} {Electrónica}} 
+     }
+   }
+ \end{minipage}
+}
+
+\fancyhead[R] %la "R" indica a la derecha
+{
+  \begin{minipage}{4.0cm}
+   \small
+   {
+     \emph{\textbf{Informática I}} \\ \emph{3 de Julio de 2017} \\ \emph{Primer Parcial}\\ \emph{Curso r1092}  
+   }
+  \end{minipage}}
+
+\definecolor{OliveGreen}{RGB}{2,80,1}
+\definecolor{LigthOrange}{RGB}{255,255,200}
+\definecolor{gray97}{gray}{.97}
+
+
+
+\begin{document} % Inicio del documento
+\newpage
+%Cambia de página, el texto después de este comando aparecerá en la siguiente página en adelante.
+
+
+\noindent
+  \begin{center}
+   \begin{tabular}{| c | c | c |}
+    \hline
+     Apellido y Nombres \hspace{8cm} &  Legajo & {Calificación} \\ \hline 
+      &	& \\ \hline
+   \end{tabular}	
+  \end{center}
+
+\noindent
+Condiciones: \\
+Bla
+Bla
+Bla{\bf primerParcial}.\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Comienzo del tema del examen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lstset{
+	frame=Ltb,
+	framerule=0pt,
+	aboveskip=0.5cm,
+	framextopmargin=3pt,
+	framexbottommargin=3pt,
+	framexleftmargin=0.4cm,
+	framesep=0pt,
+	rulesep=.4pt,
+	backgroundcolor=\color{gray97},
+	rulesepcolor=\color{black},
+% 	language=C,
+	captionpos=b,
+	tabsize=3,
+	frame=lines,
+	keywordstyle=\color{blue},
+	commentstyle=\color{Gray},
+	stringstyle=\color{red},
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	breaklines=true,
+	showstringspaces=false,
+	basicstyle=\ttfamily\scriptsize,
+	emph={label},
+	framerule=0pt,
+}
+
+\begin{enumerate}
+\item Implemente una función que contenga el algoritmo de cifrado {\bf ROT13}. \\
+El algoritmo consiste en sustituir cada letra por una que se encuentra trece posiciones por delante. Por ejemplo la A se reemplaza por la N, la B por la O y así sucesivamente. Para las últimas trece letras la secuencia se invierte. A continuación se muestra la tabla de las equivalencias entre las letras.
+%\vspace{0.6cm}
+\noindent
+  \begin{center}
+   \begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c | c | c |}
+    \hline
+     A & B & C & D & E & F & G & H & I & J & K & L & M \\ \hline 
+     N & O & P & Q & R & S & T & U & V & W & X & Y & Z \\ \hline 
+   \end{tabular}	
+  \end{center}
+Ejemplo:
+\noindent
+\vspace{-0.6cm}
+  \begin{center}
+   \begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c |}
+    \hline
+     Texto sin cifrar & H & O & L & A &   & M & U & N & D & O  \\ \hline 
+     Texto cifrado    & U & B & Y & N &   & Z & H & A & Q & B  \\ \hline 
+   \end{tabular}	
+  \end{center}
+Prototipo de la función:
+\begin{center}
+{\bf int rot\_13 (char *dataPtr)}
+\end{center}
+Donde {\bf dataPtr} es el puntero al mensaje a cifrar (string) y donde se colocará el mensaje cifrado y devuelve:
+\begin{itemize}
+\item {\bf -1} Si el mensaje contiene un caracter {\bf distinto} de una {\bf letra mayúscula} o un {\bf espacio}.
+\item Un {\bf número positivo} indicando la cantidad de caracteres convertidos sin tener en 
+cuenta los espacios ni el {\bf $\setminus$0}
+\end{itemize}
+\item Implemente una función que realice la validación de una CBU (Clave Bancaria Uniforme).\\
+La CBU está formado de la siguiente manera.\\
+\fontsize{9pt}{9pt}\selectfont
+\vspace{-0.6cm}
+\begin{center} 
+   \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline 
+     0&1&4&0&1&2&5&6&5&5&6&5&4&1&8&5&4&7&6&5&4&3 \\ \hline 
+     $E_0$&$E_1$&$E_2$&$S_0$&$S_1$&$S_2$&$S_3$&$D_0$&$C_0$&$C_1$&$C_2$&$C_3$&$C_4$&$C_5$&$C_6$&
+     $C_7$&$C_8$&$C_9$&$C_{10}$&$C_{11}$&$C_{12}$&$D_1$\\ \hline 
+   \end{tabular}
+\end{center}   	
+%\vspace{2.5cm}
+\fontsize{12pt}{12pt}\selectfont
+Donde:
+\begin{itemize}
+\item {\bf E0 a E2}: Es el número de la entidad bancaria.
+\item {\bf S0 a S3}: Es el número de sucursal.
+\item {\bf D0}: Es el dígito verificador de E y S
+\item {\bf C0 a C12}: Es el número de cuenta.
+\item {\bf D0}: Es el dígito verificador de C
+\end{itemize}
+Los dígitos verificadores de la clave bancaria única se calculan de la siguiente forma:\\
+\fontsize{10.4pt}{10.4pt}\selectfont
+
+$R_0$ = $E_0$*9 + $E_1$*7 + $E_2$*1 + $S_0$*9 + $S_1$*7 + $S_1$*1 + $S_2$*3 \\
+$D_0$ = 10 - ($R_0$ \% 10)\\
+
+$R_1$ = $C_0$*9 + $C_1$*7 + $C_2$*1 + $C_3$*3 + $C_4$*9 + $C_5$*7 + $C_6$*1 + $C_7$*3 + $C_8$*9 + $C_9$*7 + $C_{10}$*1 + $C_{11}$*3  + $C_{12}$* 9\\
+$D_1$ = 10 - ($R_1$ \% 10)\\
+\fontsize{12pt}{12pt}\selectfont
+\\
+La función tiene el siguiente prototipo:
+\begin{center}
+{\bf int cbu\_validar (char *dataPtr)}
+\end{center}
+Donde {\bf dataPtr} es el puntero la clave bancaria uniforme a validar terminada en ‘{\bf $\setminus$0}’\\
+\\
+Devuelve:
+\begin{itemize}
+\item {\bf -1} Si la CBU pasada no tiene 22 caracteres.
+\item {\bf -2} Si alguno de los caracteres de la CBU no es un número.
+\item {\bf -3} Si el dígito verificador D0 no corresponde.
+\item {\bf -4} Si el dígito verificador D1 no corresponde.
+\end{itemize}
+\item Implemente una función que obtenga el dígito verificador de un número de CUIT pasado como 
+parámetro, el cálculo se realiza utilizando el algoritmo {\bf módulo11}.\\
+ El prototipo de la función es el siguiente:
+\begin{center}
+{\bf int cuit\_validar (char *cuit);}
+\end{center}
+El parámetro {\bf cuit} es un puntero al vector que contiene el número de CUIT terminado en ‘{\bf $\setminus$0}’\\
+\\
+Devuelve:
+\begin{itemize}
+\item Un {\bf número positivo} indicando el dígito verificador. 
+\item {\bf -1}: cuando la cantidad de dígitos es distinto de 10 
+\item {\bf -2}: Indica que el número de CUIT es inválido (contiene algo distinto a números) \end{itemize}
+Algoritmo módulo 11:  
+\begin{itemize}
+\item Multiplique los dígitos Desde el menos significativo por la serie 2,3,4,5,6,7.
+\item Sume el resultado de las multiplicaciones anteriores.
+\item Calcule el módulo 11 de la suma anterior.
+\item Al resultado anterior restele 11
+\begin{itemize}
+\item si el resultado es {\bf menor que 10} lo obtenido es el dígito verificador
+\item si el resultado es {\bf 10} el dígito verificador es {\bf 9}.
+\item Si el resultado es {\bf 11} el dígito verificador es {\bf 0}.
+\end{itemize} 
+\end{itemize}
+Ejemplo:\\
+\\
+%\vspace{0.3cm}
+\noindent
+\fontsize{10pt}{10pt}\selectfont
+   \begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c | c | c | c |}
+    \hline
+     CUIT & 2 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & suma & \%11 & dígito\\ \hline 
+     Valor a multiplicar por digito & $X_5$ & $X_4$ & $X_3$ & $X_2$ & $X_7$ & $X_6$ & $X_5$ & $X_4$ & $X_3$ & $X_2$ &  &148\%11 & 11-5 \\ \hline 
+     Resultado de la multiplicación & 10 & 0 & 3 & 4 & 21 & 24 & 25 & 24 & 21 & 16 & =148 & =5 & 6\\ \hline 
+   \end{tabular}	
+\fontsize{12pt}{12pt}\selectfont
+\item Explique qué entiende por variable, nombre los tipos que conozca y sus características. De ejemplos de uso.
+\end{enumerate}
+ 
+\end{document} % Fin del documento.
+ 
+
+  

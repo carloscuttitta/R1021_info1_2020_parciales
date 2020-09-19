@@ -1,0 +1,208 @@
+\documentclass[12pt]{article} % Clase de documento: artículo y tamaño de letra
+%\usepackage[spanish]{babel} % Manejo de idiomas
+\usepackage[utf8]{inputenc} % Escritura en castellano con acentos
+\usepackage[T1]{fontenc} % Escritura en castellano con acentos
+\usepackage{calligra} 
+\usepackage{listings}
+\usepackage{pslatex}  % Fuente de letras
+\usepackage{graphicx}
+\usepackage{array}
+%\usepackage{times} % Fuente de letras
+\usepackage[margin=2.5cm]{geometry}
+%Coloca 2.5 cm de margenes superior, inferior,derecho e izquierdo.
+\usepackage{caption}
+\usepackage{txfonts}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[spanish,activeacute]{babel}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{color}
+% \usepackage[T1]{fontenc}
+\usepackage{times}
+% \usepackage[lmargin=2cm]{geometry}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{mdwlist}
+
+\usetikzlibrary{chains,fit,shapes,arrows,calc,shapes,decorations.pathreplacing}
+\usetikzlibrary{through}
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
+
+%Paquetes para hacer tablas lindas...
+% \usepackage{amsmath,amssymb,amsfonts,latexsym,stmaryrd}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{shadow}
+\usepackage{fancybox}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{subfigure}
+\usepackage{multirow}
+
+\pagestyle{fancy}
+\headheight=50pt %para cambiar el tamaño del encabezado
+\fancyhead[L]    %la "L" indica a la izquierda
+{	
+ \begin{minipage}{3.3cm}
+  \includegraphics[width=1.0\textwidth]{Logo-UTN-BA.jpeg}
+%  \includegraphics[width=0.6\textwidth]{UTNlogo.eps}
+ \end{minipage}	
+ \begin{minipage}{7.7cm}
+   \normalsize
+   {
+     \textsf
+     {
+       \calligra{Universidad Tecnológica Nacional\\ Facultad Regional Buenos Aires \\ Departamento de {Ingeniería} {Electrónica}} 
+     }
+   }
+ \end{minipage}
+}
+
+\fancyhead[R] %la "R" indica a la derecha
+{
+  \begin{minipage}{4.0cm}
+   \small
+   {
+     \emph{\textbf{Informática I}} \\ \emph{4 de Julio de 2020} \\ \emph{Ejemplo de Parcial}\\ \emph{Curso R1021}  
+   }
+  \end{minipage}}
+
+\definecolor{OliveGreen}{RGB}{2,80,1}
+\definecolor{LigthOrange}{RGB}{255,255,200}
+\definecolor{gray97}{gray}{.97}
+
+\begin{document} % Inicio del documento
+\newpage
+%Cambia de página, el texto después de este comando aparecerá en la siguiente página en adelante.
+
+\noindent
+  \begin{center}
+   \begin{tabular}{| c | c | c |}
+    \hline
+     Apellido y Nombres \hspace{8cm} &  Legajo & {Calificación} \\ \hline 
+      &	& \\ \hline
+   \end{tabular}	
+  \end{center}
+
+\noindent
+%Condiciones: \\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Comienzo del tema del examen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lstset{
+	frame=Ltb,
+	framerule=0pt,
+	aboveskip=0.5cm,
+	framextopmargin=3pt,
+	framexbottommargin=3pt,
+	framexleftmargin=0.4cm,
+	framesep=0pt,
+	rulesep=.4pt,
+	backgroundcolor=\color{gray97},
+	rulesepcolor=\color{black},
+ 	language=C,
+	captionpos=b,
+	tabsize=3,
+	frame=lines,
+	keywordstyle=\color{blue},
+	commentstyle=\color{Gray},
+	stringstyle=\color{red},
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	breaklines=true,
+	showstringspaces=false,
+	basicstyle=\ttfamily\scriptsize,
+	emph={label},
+	framerule=0pt,
+}
+\begin{enumerate}
+\item Ingresar por linea de comando un mail valido donde solo se permiten además de letras y números los simbolos $"${\color{red}-}$"$, $"${\color{red}\_ }$"$ y $"${\color{red}.}$"$    y verificar que solo contenga un $"${\color{red}@}$"$ .\\
+imprimir el resultado con letras mayusculas y en forma separada el nombre del mail y el nombre del dominio\\ 
+En caso de necesitarla, utilizar la minima cantidad de memoria.\\
+Los prototipos de las funciones son: \\
+
+{\color{blue}void} my\_ toupper ({\color{blue}char} *);\\
+{\bf Donde:}\\
+Envia la dirección de la cadena de caracteres a convertir.\\
+{\bf Recive:}\\
+No recibe nada.\\
+
+{\color{blue}int} validar\_ correo ({\color{blue}char} *);\\
+{\bf Donde:}\\
+Envia la dirección de la cadena de caracteres a validar.\\
+{\bf Recive:}
+	\begin{itemize}
+	\item {\bf 0} si es un mail valido.
+	\item {\bf distinto de 0} si el mail no es valido. 
+	\end{itemize}
+
+{\color{blue}int} imprimirNombre ({\color{blue}char} *);\\
+{\bf Donde:}\\
+Envia la dirección de la cadena de caracteres a imprimir.\\
+{\bf Recive:}
+	\begin{itemize}
+	\item {\bf 0} si se pudo escribir correctamente el nombre del mail.
+	\item {\bf distinto de 0} si ocurrió algún error dentro de la función que no haya permitido imprimir el nombre del mail. 
+	\end{itemize}
+
+{\color{blue}int} imprimirDominio ({\color{blue}char} *);\\
+{\bf Donde:}\\
+Envia la dirección de la cadena de caracteres a imprimir.\\
+{\bf Recive:}
+	\begin{itemize}
+	\item {\bf 0} si se pudo escribir correctamente el dominio del mail
+	\item {\bf distinto de 0} si ocurrió algún error dentro de la función que no haya permitido imprimir lo solicitado. 
+	\end{itemize}
+\end{enumerate}
+
+\newpage
+
+Donde se ve  {\color{red}(........)}  completar con el dato necesario.\\ 
+ \begin{lstlisting}
+#include"my.h"
+
+int main (int argc , char ** argv)
+{
+    int     valido;
+    
+    if (argc == 2)
+    {
+        my_toupper(........);
+        valido = validar_correo(........);    
+        if ( valido == 0 )
+        {
+            valido=imprimirNombre(........);
+            if (valido !=0)
+            {
+                printf("error asignando memoria\n");
+            }
+            valido=imprimirDominio(........);
+            if (valido !=0)
+            {
+                printf("error asignando memoria\n");
+            }
+        }
+        else
+        {
+            printf("%s  NO es un mail \n", (........) );
+        }
+    }else
+    {
+        printf("escriba un solo argumento que sea un mail\n");
+    }
+    return 0;
+}
+   \end{lstlisting}
+ 
+\end{document} % Fin del documento.
+ 
+
+  

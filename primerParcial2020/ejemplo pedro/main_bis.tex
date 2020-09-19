@@ -1,0 +1,190 @@
+\documentclass[12pt]{article} % Clase de documento: artículo y tamaño de letra
+\usepackage[utf8]{inputenc} % Escritura en castellano con acentos
+\usepackage{calligra} 
+\usepackage{listings}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage[spanish,activeacute]{babel}
+\usepackage{tikz}
+\usepackage{verbatim}
+
+\pagestyle{fancy}
+\headheight=50pt %para cambiar el tamaño del encabezado
+\fancyhead[L]    %la "L" indica a la izquierda
+{	
+ \begin{minipage}{3.3cm}
+  \includegraphics[width=1.0\textwidth]{Logo-UTN-BA.jpeg}
+%  \includegraphics[width=0.6\textwidth]{UTNlogo.eps}
+ \end{minipage}	
+ \begin{minipage}{7.7cm}
+   \normalsize
+   {
+     \textsf
+     {
+       \calligra{Universidad Tecnológica Nacional\\ Facultad Regional Buenos Aires \\ Departamento de {Ingeniería} {Electrónica}} 
+     }
+   }
+ \end{minipage}
+}
+
+\fancyhead[R] %la "R" indica a la derecha
+{
+  \begin{minipage}{4.0cm}
+   \small
+   {
+     \emph{\textbf{Informática I}} \\ \emph{11 de Julio de 2020} \\ \emph{Pedro Vassena}\\ \emph{Curso R1021}  
+   }
+  \end{minipage}}
+
+\definecolor{OliveGreen}{RGB}{2,80,1}
+\definecolor{LigthOrange}{RGB}{255,255,200}
+\definecolor{gray97}{gray}{.97}
+
+\begin{document} % Inicio del documento
+\newpage
+%Cambia de página, el texto después de este comando aparecerá en la siguiente página en adelante.
+
+\noindent
+  \begin{center}
+   \begin{tabular}{| c | c | c |}
+    \hline
+     Apellido y Nombres \hspace{8cm} &  Legajo & {Calificación} \\ \hline 
+      &	& \\ \hline
+   \end{tabular}	
+  \end{center}
+
+\noindent
+%Condiciones: \\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Comienzo del tema del examen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lstset{
+	frame=Ltb,
+	framerule=0pt,
+	aboveskip=0.5cm,
+	framextopmargin=3pt,
+	framexbottommargin=3pt,
+	framexleftmargin=0.4cm,
+	framesep=0pt,
+	rulesep=.4pt,
+	backgroundcolor=\color{gray97},
+	rulesepcolor=\color{black},
+ 	language=C,
+	captionpos=b,
+	tabsize=3,
+	frame=lines,
+	keywordstyle=\color{blue},
+	commentstyle=\color{Gray},
+	stringstyle=\color{red},
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	breaklines=true,
+	showstringspaces=false,
+	basicstyle=\ttfamily\scriptsize,
+	emph={label},
+	framerule=0pt,
+}
+\begin{enumerate}
+ \item Realizar una función que sume 2 bytes no signados con saturación.
+
+Prototipo de la función:
+\lstset{language=c,
+	numbers=none,
+	numberstyle=,
+	numbersep=,
+}
+ \begin{lstlisting}
+unsigned char suma_saturada(unsigned char a, unsigned char b);
+\end{lstlisting}
+Parámetros de entrada:
+
+\lstset{language=c,
+	numbers=none,
+	numberstyle=,
+	numbersep=,
+}
+ \begin{lstlisting}
+unsigned char a: Byte no signado con el primer operando.
+unsigned char b: Byte no signado con el segundo operando.
+\end{lstlisting}
+
+Retorno:
+
+\lstset{language=c,
+	numbers=none,
+	numberstyle=,
+	numbersep=,
+}
+ \begin{lstlisting}
+unsigned char: Byte no signado con el resultado.
+\end{lstlisting}
+
+La suma saturada implica que si hay {\color{blue}overflow} (la suma de dos valores no signados da menor que un operando cualquiera) se debe devolver el valor
+\lstset{language=c,
+	numbers=none,
+	numberstyle=,
+	numbersep=,
+}
+ \begin{lstlisting}
+UCHAR_MAX (+255).
+\end{lstlisting}
+
+Este define está definido en 
+\lstset{language=c,
+	numbers=none,
+	numberstyle=,
+	numbersep=,
+}
+
+ \begin{lstlisting}
+#include<limits.h>
+\end{lstlisting}
+
+\item Realizar una función que sume 2 vectores de bytes no signados con saturación.
+
+Prototipo de la función:
+\lstset{language=c,
+	numbers=none,
+	numberstyle=,
+	numbersep=,
+}
+
+ \begin{lstlisting}
+unsigned char *suma_saturada_vector(unsigned char *vec1,unsigned char *vec2,unsigned int n);
+\end{lstlisting}
+
+Parametros de entrada:
+\lstset{language=c,
+	numbers=none,
+	numberstyle=,
+	numbersep=,
+}
+
+ \begin{lstlisting}
+char *vec1: Puntero que apunta al primer elemento de un vector de bytes no signados de longitud n.
+char *vec2: Puntero que apunta al primer elemento de otro vector de bytes no signados de longitud n.
+unsigned int n: Longitud de los vectores a sumar.
+\end{lstlisting}
+
+Retorno:
+\lstset{language=c,
+	numbers=none,
+	numberstyle=,
+	numbersep=,
+}
+
+ \begin{lstlisting}
+char *: Puntero que apunta al primer elemento de un vector de bytes no signados de longitud n, alojado dinamicamente, que contiene el resultado de la suma.
+\end{lstlisting}
+
+Utilizar la función del punto 1.\\
+Utilizar memoria dinámica para la salida.
+
+\end{enumerate}
+ 
+\end{document} % Fin del documento.
